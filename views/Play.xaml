@@ -1,0 +1,62 @@
+﻿<UserControl x:Name="s" x:Class="SpaceWar.views.Play"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SpaceWar.views"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1000"
+              UseLayoutRounding="True" IsVisibleChanged="s_IsVisibleChanged"
+             
+             >
+    <UserControl.Background>
+        <ImageBrush ImageSource="/SpaceWar;component/images/playBackgroud.png" Stretch="UniformToFill"/>
+
+
+    </UserControl.Background>
+    <UserControl.Resources>
+        <Style TargetType="Border" x:Key="stroke">
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="BorderThickness" Value="5" />
+            <Setter Property="Width" Value="250" />
+            <Setter Property="Height" Value="250" />
+            <Setter Property="CornerRadius" Value="20"/>
+        </Style>
+
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Grid.Row="1" >
+            <Border  Style="{StaticResource stroke}">
+                <Rectangle x:Name="ship" Height="200" Width="200" />
+            </Border>
+            <TextBlock Text="YOU SHIP" Style="{StaticResource gameText}" HorizontalAlignment="Center"/>
+
+        </StackPanel>
+        <Border Grid.Column="2" Grid.Row="1"  Style="{StaticResource stroke}">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock FontSize="45" Text="Best Level" Style="{StaticResource gameText}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock FontSize="60" x:Name="bestLevel" Text="20" Style="{StaticResource gameText}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Column="1" Grid.Row="2" x:Name="playWindow"  Canvas.Left="300" Canvas.Top="300" CornerRadius="30">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" ShadowDepth="10" Direction="270" Color="Black"/>
+            </Border.Effect>
+
+            <Button  Click="Button_Click" Style="{StaticResource btnPlay}" Content="Play" VerticalAlignment="Center"/>
+
+        </Border>
+
+    </Grid>
+</UserControl>
